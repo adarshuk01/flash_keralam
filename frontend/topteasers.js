@@ -48,54 +48,59 @@ function renderTopTeasers(items) {
  * @param {HTMLElement} el        - the scrollable container
  * @param {number}      halfCount - number of *original* items (half the doubled list)
  */
-function startTeaserAutoScroll(el, halfCount) {
-  // Cancel any previous scroll loop on re-render
-  if (_teaserScrollRAF) {
-    cancelAnimationFrame(_teaserScrollRAF);
-    _teaserScrollRAF = null;
+let _teaserInterval = null;
+let _resumeTimer = null;
+
+function startTeaserAutoScroll(el) {
+  // Stop previous
+  if (_teaserInterval) {
+    clearInterval(_teaserInterval);
+    _teaserInterval = null;
   }
 
-  // Only run on touch / narrow screens
   const isMobile = window.innerWidth <= 768;
+  if (!isMobile) return;
 
-if (!isMobile) return;
+  const SPEED = 1; // px per tick
+  const INTERVAL = 20; // ms (~50fps)
 
-  const SPEED = 0.5; // px per frame  (~36 px/s at 60 fps)
   let paused = false;
 
-  // ── scroll loop ──────────────────────────────
-  function tick() {
-    if (!paused) {
-      el.scrollLeft += SPEED;
+  function start() {
+    _teaserInterval = setInterval(() => {
+      if (paused) return;
 
-      // When we've scrolled exactly through the first half, snap back silently
-      const half = el.scrollWidth / 2;
-      if (el.scrollLeft >= half) {
-        el.scrollLeft -= half;
+      el.scrollBy({ left: SPEED, behavior: "auto" });
+
+      // infinite loop reset
+      if (el.scrollLeft >= el.scrollWidth / 2) {
+        el.scrollLeft = 0;
       }
-    }
-    _teaserScrollRAF = requestAnimationFrame(tick);
+    }, INTERVAL);
   }
 
-setTimeout(() => {
-  _teaserScrollRAF = requestAnimationFrame(tick);
-}, 300);
+  // Start AFTER render (important for mobile)
+  setTimeout(start, 300);
 
-  // ── pause on touch start ─────────────────────
+  // ───── Touch controls ─────
   el.addEventListener("touchstart", () => {
     paused = true;
-    clearTimeout(_teaserScrollTimer);
+    clearTimeout(_resumeTimer);
   }, { passive: true });
 
-  // ── resume 2 s after touch end ───────────────
   el.addEventListener("touchend", () => {
-    clearTimeout(_teaserScrollTimer);
-    _teaserScrollTimer = setTimeout(() => {
+    clearTimeout(_resumeTimer);
+    _resumeTimer = setTimeout(() => {
       paused = false;
-    }, 2000);
+    }, 1500);
   }, { passive: true });
 
-  // ── also pause / resume on pointer events (desktop fallback) ──
-  el.addEventListener("mouseenter", () => { paused = true; });
-  el.addEventListener("mouseleave", () => { paused = false; });
+  // ───── Visibility fix (VERY IMPORTANT 🔥) ─────
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      paused = true;
+    } else {
+      paused = false;
+    }
+  });
 }
