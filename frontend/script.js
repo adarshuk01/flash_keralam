@@ -1,5 +1,5 @@
 // 🔥 API
-const API_URL = "http://localhost:5000/api/news/all?limit=50";
+const API_URL = "https://flash-keralam-nine.vercel.app/api/news/all?limit=50";
 
 // 🔥 Global fallback image
 const FALLBACK_IMAGE =
@@ -249,7 +249,7 @@ function renderTopTeasers(items) {
 async function loadLocalNews() {
   try {
     const res = await fetch(
-      "http://localhost:5000/api/news/all?category=kerala"
+      "https://flash-keralam-nine.vercel.app/api/news/all?category=kerala"
     );
     const data = await res.json();
 
