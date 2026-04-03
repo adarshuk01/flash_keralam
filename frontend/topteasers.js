@@ -56,10 +56,9 @@ function startTeaserAutoScroll(el, halfCount) {
   }
 
   // Only run on touch / narrow screens
-  const isMobile = () => window.matchMedia("(max-width: 768px)").matches ||
-                         ("ontouchstart" in window);
+  const isMobile = window.innerWidth <= 768;
 
-  if (!isMobile()) return;
+if (!isMobile) return;
 
   const SPEED = 0.5; // px per frame  (~36 px/s at 60 fps)
   let paused = false;
@@ -78,7 +77,9 @@ function startTeaserAutoScroll(el, halfCount) {
     _teaserScrollRAF = requestAnimationFrame(tick);
   }
 
+setTimeout(() => {
   _teaserScrollRAF = requestAnimationFrame(tick);
+}, 300);
 
   // ── pause on touch start ─────────────────────
   el.addEventListener("touchstart", () => {
