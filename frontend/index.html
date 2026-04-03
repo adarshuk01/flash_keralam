@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The NEWS*</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            serif: ['Source Serif 4', 'serif'],
+            sans: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            ink: { DEFAULT: '#111111', soft: '#333333', muted: '#666666', faint: '#999999' },
+            paper: { DEFAULT: '#f5f3ee', warm: '#ede9e0', off: '#faf9f6' },
+            accent: '#c8102e',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.6s ease forwards',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(18px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+
+    .boldonse-regular {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+   .noto-sans-malayalam {
+  font-family: "Noto Sans Malayalam", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+    :root { scroll-behavior: smooth; }
+
+    /* LIGHT */
+    html.light body { background: #f5f3ee; color: #111111; }
+    html.light .bg-surface    { background: #faf9f6; }
+    html.light .bg-card       { background: #ffffff; }
+    html.light .bg-header     { background: #faf9f6; border-bottom: 1px solid #ddd9d0; }
+    html.light .bg-topbar     { background: #111111; color: #f5f3ee; }
+    html.light .bg-nav        { background: #faf9f6; border-top: 2px solid #111111; border-bottom: 1px solid #ddd9d0; }
+    html.light .text-primary  { color: #111111; }
+    html.light .text-secondary{ color: #555; }
+    html.light .text-muted    { color: #888; }
+    html.light .border-divider{ border-color: #ddd9d0; }
+    html.light .cat-tag       { background: #111; color: #fff; }
+    html.light .cat-tag-outline { border: 1px solid #111; color: #111; }
+    html.light .section-rule  { border-top: 2px solid #dcd9d9; }
+    html.light .hero-overlay  { background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); }
+    html.light .ticker-bg     { background: #c8102e; }
+    html.light .pill-live     { background: #c8102e; color: #fff; }
+    html.light .card-hover:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.10); transform: translateY(-2px); }
+
+    /* DARK */
+    html.dark body  { background: #121212; color: #e8e4db; }
+    html.dark .bg-surface    { background: #1a1a1a; }
+    html.dark .bg-card       { background: #1e1e1e; }
+    html.dark .bg-header     { background: #161616; border-bottom: 1px solid #2d2d2d; }
+    html.dark .bg-topbar     { background: #0a0a0a; color: #aaa; }
+    html.dark .bg-nav        { background: #161616; border-top: 2px solid #e8e4db; border-bottom: 1px solid #2d2d2d; }
+    html.dark .text-primary  { color: #e8e4db; }
+    html.dark .text-secondary{ color: #b0aa9f; }
+    html.dark .text-muted    { color: #777; }
+    html.dark .border-divider{ border-color: #2d2d2d; }
+    html.dark .cat-tag       { background: #e8e4db; color: #111; }
+    html.dark .cat-tag-outline { border: 1px solid #555; color: #aaa; }
+    html.dark .section-rule  { border-top: 2px solid #e8e4db; }
+    html.dark .hero-overlay  { background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); }
+    html.dark .ticker-bg     { background: #c8102e; }
+    html.dark .pill-live     { background: #c8102e; color: #fff; }
+    html.dark .card-hover:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.5); transform: translateY(-2px); }
+    html.dark .top-teaser-item { border-color: #2d2d2d; }
+
+    * { transition: background-color 0.3s ease, color 0.2s ease, border-color 0.3s ease; }
+    img { transition: transform 0.4s ease; }
+    .img-zoom:hover img { transform: scale(1.04); }
+    .overflow-hidden { overflow: hidden; }
+
+    .stagger-1 { animation: fadeUp 0.55s ease 0.05s both; }
+    .stagger-2 { animation: fadeUp 0.55s ease 0.15s both; }
+    .stagger-3 { animation: fadeUp 0.55s ease 0.25s both; }
+    .stagger-4 { animation: fadeUp 0.55s ease 0.35s both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    html.light ::-webkit-scrollbar-thumb { background: #bbb; border-radius: 4px; }
+    html.dark  ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+
+    /* Toggle button */
+    .toggle-track { width: 44px; height: 24px; border-radius: 12px; position: relative; cursor: pointer; transition: background 0.3s; }
+    html.light .toggle-track { background: #ccc; }
+    html.dark  .toggle-track { background: #555; }
+    .toggle-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; position: absolute; top: 3px; transition: left 0.3s; }
+    html.light .toggle-thumb { left: 3px; }
+    html.dark  .toggle-thumb { left: 23px; }
+
+    /* Podcast card */
+    .podcast-card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; }
+
+    /* Section badge */
+    .sec-badge { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* Horizontal rule style */
+    .hr-thin { height: 1px; border: none; }
+    html.light .hr-thin { background: #ddd9d0; }
+    html.dark  .hr-thin { background: #2d2d2d; }
+  </style>
+</head>
+<body class="font-sans min-h-screen">
+
+  <!-- TOP BAR -->
+  <div class="bg-topbar text-xs py-1.5 px-4 flex items-center justify-between">
+    <span class="font-sans opacity-70" id="topDate"></span>
+    <div class="flex items-center gap-4">
+      <!-- Dark Mode Toggle -->
+      <div class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+        <div class="toggle-track" onclick="toggleDark()" title="Toggle dark mode">
+          <div class="toggle-thumb"></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 0 0 0-1.41l-1.06-1.06zm1.06-12.37l-1.06 1.06a.996.996 0 0 0 0 1.41c.39.39 1.03.39 1.41 0l1.06-1.06a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0zM7.05 18.36l-1.06 1.06a.996.996 0 0 0 0 1.41c.39.39 1.03.39 1.41 0l1.06-1.06a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0z"/></svg>
+      </div>
+      <span class="opacity-50">|</span>
+      <a href="#" class="opacity-70 hover:opacity-100 font-sans">The Menu</a>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+    </div>
+  </div>
+
+  <!-- HEADER / MASTHEAD -->
+  <header class="bg-header py-5 flex flex-col items-center">
+    <a href="#" class=" uppercase text-4xl md:text-5xl font-black tracking-tight text-primary boldonse-regular" style=" letter-spacing:-0.01em;">Flash Keralam</a>
+  </header>
+
+  <!-- NAV -->
+  <nav class="bg-nav sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 overflow-x-auto">
+      <ul class="flex items-center gap-0 whitespace-nowrap text-xs font-sans font-medium tracking-widest uppercase">
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">World News</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Politics</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Business</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Technology</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Health</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Sports</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Culture</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Podcast</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 py-6">
+
+    <!-- TOP TEASERS -->
+    <div id="top-teasers" class="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible  mb-6   "></div>
+
+    <!-- HERO ARTICLE -->
+   <!-- <div id="hero-news" class="relative rounded-sm overflow-hidden mb-2 stagger-1 img-zoom noto-sans-malayalam" style="height: 420px;"></div>
+    <div class="flex justify-between items-center mb-8">
+      <span class="font-sans text-xs text-muted">Sep 5, 2024</span>
+      <span class="font-sans text-xs text-muted">09 Mins</span>
+    </div> -->
+
+    <!-- LATEST NEWS SECTION -->
+    <section class="mb-12 noto-sans-malayalam">
+      <div class="section-rule pt-3 mb-5 flex justify-between items-center">
+        <h2 class="font-display font-bold text-xl text-primary tracking-tight">Latest News</h2>
+        <a href="#" class="font-sans text-xs text-muted hover:text-accent flex items-center gap-1">View All <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Top row: big + two stacked -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        <!-- Big card -->
+        <div id="big-card" class="md:col-span-2 relative rounded-sm overflow-hidden"></div>
+
+        <!-- Two stacked -->
+        <!-- Right 2 -->
+<div id="side-news" class="flex flex-col gap-4"></div>
+        </div>
+      </div>
+
+      <!-- Bottom row: three cards -->
+     <!-- Bottom 3 -->
+<div id="bottom-news" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+    </section>
+
+    <!-- WORLD NEWS SECTION -->
+   
+
+    <!-- TECHNOLOGY SECTION -->
+   <section class="mb-12">
+  <div class="section-rule pt-3 mb-5 flex justify-between items-center">
+    <h2 class="font-display font-bold text-xl text-primary tracking-tight">
+      Local News
+    </h2>
+    <a href="#" class="font-sans text-xs text-muted hover:text-accent flex items-center gap-1">
+      View All
+    </a>
+  </div>
+
+  <!-- ✅ ONLY THIS -->
+  <div id="local-news" class="grid grid-cols-2 md:grid-cols-4 gap-5"></div>
+</section>
+
+    <!-- PODCASTS SECTION -->
+    <section class="mb-12">
+      <div class="section-rule pt-3 mb-5 flex justify-between items-center">
+        <h2 class="font-display font-bold text-xl text-primary tracking-tight">Podcasts</h2>
+        <a href="#" class="font-sans text-xs text-muted hover:text-accent flex items-center gap-1">View All <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Podcast card 1 -->
+        <div>
+          <div class="podcast-card border-b border-divider">
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=90&h=90&fit=crop" alt="" class="w-16 h-16 object-cover rounded-sm flex-shrink-0"/>
+            <div>
+              <h4 class="font-serif text-sm font-semibold text-primary leading-snug mb-1">Riding the tide of innovation and inspiration</h4>
+              <p class="font-sans text-xs text-secondary leading-snug">The latest trends, creative breakthroughs, and the visionary minds driving change</p>
+              <div class="flex gap-3 mt-1.5 text-xs text-muted">
+                <span>56 Minutes</span>
+                <span>·</span>
+                <span>Guy Hawkins</span>
+              </div>
+            </div>
+          </div>
+          <div class="podcast-card">
+            <img src="https://images.unsplash.com/photo-1590602846989-e99596cb9a18?w=90&h=90&fit=crop" alt="" class="w-16 h-16 object-cover rounded-sm flex-shrink-0"/>
+            <div>
+              <h4 class="font-serif text-sm font-semibold text-primary leading-snug mb-1">On the air capturing the voices of change</h4>
+              <p class="font-sans text-xs text-secondary leading-snug">Brings you powerful stories and conversations with individuals who are making a difference</p>
+              <div class="flex gap-3 mt-1.5 text-xs text-muted">
+                <span>56 Minutes</span>
+                <span>·</span>
+                <span>Guy Hawkins</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Podcast card 2 -->
+        <div>
+          <div class="podcast-card border-b border-divider">
+            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=90&h=90&fit=crop" alt="" class="w-16 h-16 object-cover rounded-sm flex-shrink-0"/>
+            <div>
+              <h4 class="font-serif text-sm font-semibold text-primary leading-snug mb-1">Where ideas come alive and stories unfold</h4>
+              <p class="font-sans text-xs text-secondary leading-snug">This podcast explores the journey from concept to creation, showcasing the stories</p>
+              <div class="flex gap-3 mt-1.5 text-xs text-muted">
+                <span>56 Minutes</span>
+                <span>·</span>
+                <span>Guy Hawkins</span>
+              </div>
+            </div>
+          </div>
+          <div class="podcast-card">
+            <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=90&h=90&fit=crop" alt="" class="w-16 h-16 object-cover rounded-sm flex-shrink-0"/>
+            <div>
+              <h4 class="font-serif text-sm font-semibold text-primary leading-snug mb-1">The podcast where ideas take flight</h4>
+              <p class="font-sans text-xs text-secondary leading-snug">Offering listeners a chance to hear groundbreaking ideas be showcased into the world.</p>
+              <div class="flex gap-3 mt-1.5 text-xs text-muted">
+                <span>56 Minutes</span>
+                <span>·</span>
+                <span>Guy Hawkins</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Podcast card 3 -->
+        <div>
+          <div class="podcast-card border-b border-divider">
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=90&h=90&fit=crop" alt="" class="w-16 h-16 object-cover rounded-sm flex-shrink-0"/>
+            <div>
+              <h4 class="font-serif text-sm font-semibold text-primary leading-snug mb-1">Connecting ideas, people, and perspectives</h4>
+              <p class="font-sans text-xs text-secondary leading-snug">This podcast bridges ideas, people, & perspectives, fostering meaningful conversations</p>
+              <div class="flex gap-3 mt-1.5 text-xs text-muted">
+                <span>56 Minutes</span>
+                <span>·</span>
+                <span>Guy Hawkins</span>
+              </div>
+            </div>
+          </div>
+          <div class="podcast-card">
+            <img src="https://images.unsplash.com/photo-1536240478700-b869ad10d021?w=90&h=90&fit=crop" alt="" class="w-16 h-16 object-cover rounded-sm flex-shrink-0"/>
+            <div>
+              <h4 class="font-serif text-sm font-semibold text-primary leading-snug mb-1">Exploring thought-provoking topics weekly</h4>
+              <p class="font-sans text-xs text-secondary leading-snug">A wide range of topics, offering diverse perspectives and in-depth analysis each episode</p>
+              <div class="flex gap-3 mt-1.5 text-xs text-muted">
+                <span>56 Minutes</span>
+                <span>·</span>
+                <span>Guy Hawkins</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-header border-t border-divider py-8 mt-4">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <span class="font-display font-black text-2xl text-primary" >FLASH KERALAM*</span>
+        <p class="font-sans text-xs text-muted">© Copyright 2024 · The News · All rights reserved</p>
+        <div class="flex gap-4 text-muted">
+          <!-- Instagram -->
+          <a href="#" class="hover:text-accent transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" class="hover:text-accent transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="hover:text-accent transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="#" class="hover:text-accent transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./script.js"></script>
+
+  <script>
+    // Set date in topbar
+    const d = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('topDate').textContent = d.toLocaleDateString('en-US', options);
+
+    // Dark mode toggle
+    function toggleDark() {
+      const html = document.documentElement;
+      if (html.classList.contains('dark')) {
+        html.classList.replace('dark', 'light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.replace('light', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // On load: check saved preference or system preference
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.replace('light', 'dark');
+      }
+    })();
+  </script>
+</body>
+</html>
