@@ -41,6 +41,13 @@
   </script>
   <style>
 
+    #top-teasers {
+  overflow-x: auto;
+  scroll-behavior: auto;   /* must be auto, not smooth — for the silent snap-back */
+  scrollbar-width: none;
+}
+#top-teasers::-webkit-scrollbar { display: none; }
+
     .boldonse-regular {
   font-family: "Boldonse", system-ui;
   font-weight: 400;
