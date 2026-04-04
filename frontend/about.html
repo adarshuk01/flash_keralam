@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us — The NEWS*</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1118945961412631"
+     crossorigin="anonymous"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display','serif'],
+            serif: ['Source Serif 4','serif'],
+            sans: ['DM Sans','sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+
+     .boldonse-regular {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+    html.light body        { background:#f5f3ee; color:#111; }
+    html.light .bg-header  { background:#faf9f6; border-bottom:1px solid #ddd9d0; }
+    html.light .bg-topbar  { background:#111; color:#f5f3ee; }
+    html.light .bg-nav     { background:#faf9f6; border-top:2px solid #111; border-bottom:1px solid #ddd9d0; }
+    html.light .text-primary   { color:#111; }
+    html.light .text-secondary { color:#555; }
+    html.light .text-muted     { color:#888; }
+    html.light .border-divider { border-color:#ddd9d0; }
+    html.light .section-rule   { border-top:2px solid #111; }
+    html.light .bg-card        { background:#fff; }
+    html.light .bg-accent-soft { background:#fdf0f2; }
+    html.light .stat-box       { background:#fff; border:1px solid #e8e4db; }
+
+    html.dark body         { background:#121212; color:#e8e4db; }
+    html.dark .bg-header   { background:#161616; border-bottom:1px solid #2d2d2d; }
+    html.dark .bg-topbar   { background:#0a0a0a; color:#aaa; }
+    html.dark .bg-nav      { background:#161616; border-top:2px solid #e8e4db; border-bottom:1px solid #2d2d2d; }
+    html.dark .text-primary   { color:#e8e4db; }
+    html.dark .text-secondary { color:#b0aa9f; }
+    html.dark .text-muted     { color:#777; }
+    html.dark .border-divider { border-color:#2d2d2d; }
+    html.dark .section-rule   { border-top:2px solid #e8e4db; }
+    html.dark .bg-card        { background:#1e1e1e; }
+    html.dark .bg-accent-soft { background:#1e1010; }
+    html.dark .stat-box       { background:#1e1e1e; border:1px solid #2d2d2d; }
+
+    * { transition:background-color .3s,color .2s,border-color .3s; }
+
+    .toggle-track { width:44px;height:24px;border-radius:12px;position:relative;cursor:pointer; }
+    html.light .toggle-track { background:#ccc; }
+    html.dark  .toggle-track { background:#555; }
+    .toggle-thumb { width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:3px;transition:left .3s; }
+    html.light .toggle-thumb { left:3px; }
+    html.dark  .toggle-thumb { left:23px; }
+
+    .sec-badge { font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase; }
+    .hr-thin   { height:1px;border:none; }
+    html.light .hr-thin { background:#ddd9d0; }
+    html.dark  .hr-thin { background:#2d2d2d; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up { animation:fadeUp .6s ease both; }
+    .fade-up-2 { animation:fadeUp .6s .15s ease both; }
+    .fade-up-3 { animation:fadeUp .6s .28s ease both; }
+    .fade-up-4 { animation:fadeUp .6s .42s ease both; }
+
+    .team-card:hover img { transform:scale(1.04); }
+    .team-card img { transition:transform .4s; }
+
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:transparent}
+    html.light ::-webkit-scrollbar-thumb{background:#bbb;border-radius:4px}
+    html.dark  ::-webkit-scrollbar-thumb{background:#444;border-radius:4px}
+  </style>
+</head>
+<body class="font-sans min-h-screen">
+
+  <!-- TOP BAR -->
+  <div class="bg-topbar text-xs py-1.5 px-4 flex items-center justify-between">
+    <span class="opacity-70" id="topDate"></span>
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+        <div class="toggle-track" onclick="toggleDark()"><div class="toggle-thumb"></div></div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 0 0 0-1.41l-1.06-1.06zm1.06-12.37l-1.06 1.06a.996.996 0 0 0 0 1.41c.39.39 1.03.39 1.41 0l1.06-1.06a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0zM7.05 18.36l-1.06 1.06a.996.996 0 0 0 0 1.41c.39.39 1.03.39 1.41 0l1.06-1.06a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0z"/></svg>
+      </div>
+      <span class="opacity-50">|</span>
+      <a href="index.html" class="opacity-70 hover:opacity-100">← Back to Home</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-header py-5 flex flex-col items-center">
+    <a href="index.html" class=" uppercase text-4xl md:text-5xl font-black tracking-tight text-primary boldonse-regular" style=" letter-spacing:-0.01em;">Flash Keralam</a>
+  </header>
+
+<!-- NAV -->
+  <nav class="bg-nav sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 overflow-x-auto">
+      <ul class="flex items-center gap-0 whitespace-nowrap text-xs font-sans font-medium tracking-widest uppercase">
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">World News</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Politics</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Business</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Technology</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Health</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Sports</a></li>
+        <li><a href="#" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Culture</a></li>
+        <li><a href="about.html"  class="block px-3 py-3 text-red-700 font-semibold border-b-2 border-red-700">About</a></li>
+                <li><a href="contact.html" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="block px-3 py-3 text-primary hover:text-accent transition-colors">Privacy policy</a></li>
+
+
+      </ul>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+
+    <!-- HERO BANNER -->
+    <div class="relative rounded-sm overflow-hidden mb-14 fade-up" style="height:360px;">
+      <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1400&h=500&fit=crop" alt="Newsroom" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(0,0,0,0.78) 40%,rgba(0,0,0,0.15) 100%)"></div>
+      <div class="absolute inset-0 flex flex-col justify-center pl-10 md:pl-16">
+        <div class="sec-badge text-red-400 mb-3">Est. 2010</div>
+        <h1 class="font-display text-white font-black text-4xl md:text-5xl leading-tight max-w-lg" style="font-style:italic;">We Tell the Stories That Matter</h1>
+        <p class="font-serif text-white/70 text-lg mt-4 max-w-md leading-relaxed">Independent, rigorous, and human — journalism you can trust.</p>
+      </div>
+    </div>
+
+    <!-- MISSION -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-14 mb-16 items-start fade-up-2">
+      <div>
+        <div class="section-rule pt-4 mb-6">
+          <h2 class="font-display font-bold text-2xl text-primary mt-3">Our Mission</h2>
+        </div>
+        <p class="font-serif text-secondary text-lg leading-relaxed mb-5">
+          The NEWS* was founded on a simple belief: that access to accurate, impartial, and deeply reported journalism is a cornerstone of a healthy democracy.
+        </p>
+        <p class="font-serif text-secondary leading-relaxed mb-5">
+          We cover global affairs, technology, business, culture, health, and sports — not to push an agenda, but to give our readers the full picture so they can form their own well-informed views.
+        </p>
+        <p class="font-serif text-secondary leading-relaxed">
+          Every story we publish goes through a rigorous editorial review. We correct mistakes openly, name our sources wherever possible, and maintain a strict firewall between our advertising and editorial teams.
+        </p>
+      </div>
+      <div>
+        <div class="section-rule pt-4 mb-6">
+          <h2 class="font-display font-bold text-2xl text-primary mt-3">Our Values</h2>
+        </div>
+        <ul class="space-y-5">
+          <li class="flex gap-4 items-start">
+            <span class="w-8 h-8 rounded-full bg-red-700 text-white flex items-center justify-center font-display font-bold text-sm flex-shrink-0 mt-0.5">01</span>
+            <div>
+              <h3 class="font-sans font-semibold text-primary mb-1">Independence</h3>
+              <p class="font-sans text-sm text-secondary leading-relaxed">Our editorial decisions are made entirely by our journalists — never by advertisers, governments, or interest groups.</p>
+            </div>
+          </li>
+          <li class="flex gap-4 items-start">
+            <span class="w-8 h-8 rounded-full bg-red-700 text-white flex items-center justify-center font-display font-bold text-sm flex-shrink-0 mt-0.5">02</span>
+            <div>
+              <h3 class="font-sans font-semibold text-primary mb-1">Accuracy</h3>
+              <p class="font-sans text-sm text-secondary leading-relaxed">We verify before we publish. Every claim is fact-checked against primary sources, and we issue corrections prominently.</p>
+            </div>
+          </li>
+          <li class="flex gap-4 items-start">
+            <span class="w-8 h-8 rounded-full bg-red-700 text-white flex items-center justify-center font-display font-bold text-sm flex-shrink-0 mt-0.5">03</span>
+            <div>
+              <h3 class="font-sans font-semibold text-primary mb-1">Transparency</h3>
+              <p class="font-sans text-sm text-secondary leading-relaxed">We are open about our funding, methods, and any potential conflicts of interest in all our reporting.</p>
+            </div>
+          </li>
+          <li class="flex gap-4 items-start">
+            <span class="w-8 h-8 rounded-full bg-red-700 text-white flex items-center justify-center font-display font-bold text-sm flex-shrink-0 mt-0.5">04</span>
+            <div>
+              <h3 class="font-sans font-semibold text-primary mb-1">Accountability</h3>
+              <p class="font-sans text-sm text-secondary leading-relaxed">We hold the powerful to account while treating all people — regardless of their prominence — with dignity and fairness.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-16 fade-up-3">
+      <div class="stat-box rounded-sm p-6 text-center">
+        <div class="font-display font-black text-4xl text-red-700 mb-1">14+</div>
+        <div class="font-sans text-xs text-muted uppercase tracking-widest">Years Publishing</div>
+      </div>
+      <div class="stat-box rounded-sm p-6 text-center">
+        <div class="font-display font-black text-4xl text-red-700 mb-1">220+</div>
+        <div class="font-sans text-xs text-muted uppercase tracking-widest">Journalists</div>
+      </div>
+      <div class="stat-box rounded-sm p-6 text-center">
+        <div class="font-display font-black text-4xl text-red-700 mb-1">48M</div>
+        <div class="font-sans text-xs text-muted uppercase tracking-widest">Monthly Readers</div>
+      </div>
+      <div class="stat-box rounded-sm p-6 text-center">
+        <div class="font-display font-black text-4xl text-red-700 mb-1">90+</div>
+        <div class="font-sans text-xs text-muted uppercase tracking-widest">Countries Covered</div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="mb-16 fade-up-4">
+      <div class="section-rule pt-4 mb-8">
+        <h2 class="font-display font-bold text-2xl text-primary mt-3">Editorial Leadership</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="team-card text-center cursor-pointer">
+          <div class="overflow-hidden rounded-sm mb-3" style="height:180px;">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&face" alt="Editor" class="w-full h-full object-cover"/>
+          </div>
+          <h4 class="font-serif font-semibold text-primary text-sm">Jonathan Marsh</h4>
+          <p class="font-sans text-xs text-muted mt-0.5">Editor-in-Chief</p>
+        </div>
+        <div class="team-card text-center cursor-pointer">
+          <div class="overflow-hidden rounded-sm mb-3" style="height:180px;">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&face" alt="Deputy Editor" class="w-full h-full object-cover"/>
+          </div>
+          <h4 class="font-serif font-semibold text-primary text-sm">Priya Nair</h4>
+          <p class="font-sans text-xs text-muted mt-0.5">Deputy Editor</p>
+        </div>
+        <div class="team-card text-center cursor-pointer">
+          <div class="overflow-hidden rounded-sm mb-3" style="height:180px;">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&face" alt="Tech Editor" class="w-full h-full object-cover"/>
+          </div>
+          <h4 class="font-serif font-semibold text-primary text-sm">Marcus Reid</h4>
+          <p class="font-sans text-xs text-muted mt-0.5">Technology Editor</p>
+        </div>
+        <div class="team-card text-center cursor-pointer">
+          <div class="overflow-hidden rounded-sm mb-3" style="height:180px;">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&face" alt="World Editor" class="w-full h-full object-cover"/>
+          </div>
+          <h4 class="font-serif font-semibold text-primary text-sm">Amara Osei</h4>
+          <p class="font-sans text-xs text-muted mt-0.5">World News Editor</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVERTISING DISCLOSURE (AdSense requirement) -->
+    <section class="mb-16 bg-accent-soft rounded-sm p-8">
+      <div class="flex gap-4 items-start">
+        <div class="w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-sans font-semibold text-primary mb-2">Advertising & Independence Disclosure</h3>
+          <p class="font-sans text-sm text-secondary leading-relaxed">
+            The NEWS* is supported in part by advertising revenue, including ads served by <strong>Google AdSense</strong> and other third-party ad networks. These advertisements help fund our journalism and keep our content free to readers worldwide.
+          </p>
+          <p class="font-sans text-sm text-secondary leading-relaxed mt-3">
+            Advertisers have <strong>no influence</strong> over our editorial content. All story selection, sourcing, and reporting decisions rest solely with our editorial team. Sponsored content, when it appears, is clearly labelled as such and is separate from our independent reporting.
+          </p>
+          <p class="font-sans text-sm text-secondary leading-relaxed mt-3">
+            Google uses cookies to serve ads based on your prior visits to this and other websites. You can opt out of personalised advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" class="text-red-700 underline">Google's Ads Settings</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA ROW -->
+    <div class="flex flex-col md:flex-row gap-5 mb-8">
+      <a href="contact.html" class="flex-1 bg-red-700 text-white text-center py-4 font-sans font-semibold text-sm tracking-wide hover:bg-red-800 transition-colors rounded-sm">Contact Our Newsroom →</a>
+      <a href="privacy-policy.html" class="flex-1 border border-divider text-center py-4 font-sans font-semibold text-sm tracking-wide text-primary hover:bg-red-700 hover:text-white hover:border-red-700 transition-colors rounded-sm">Read Our Privacy Policy →</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-header border-t border-divider py-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <a href="index.html" class="font-display font-black text-2xl text-primary" style="font-style:italic;">The NEWS*</a>
+      <div class="flex gap-6 text-xs font-sans text-muted">
+        <a href="about.html" class="hover:text-red-700 transition-colors">About</a>
+        <a href="contact.html" class="hover:text-red-700 transition-colors">Contact</a>
+        <a href="privacy-policy.html" class="hover:text-red-700 transition-colors">Privacy Policy</a>
+      </div>
+      <p class="font-sans text-xs text-muted">© 2024 The News · All rights reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    const d = new Date();
+    document.getElementById('topDate').textContent = d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    function toggleDark(){
+      const h=document.documentElement;
+      h.classList.contains('dark')?h.classList.replace('dark','light'):h.classList.replace('light','dark');
+      localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');
+    }
+    (function(){
+      const s=localStorage.getItem('theme');
+      const p=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if(s==='dark'||(! s&&p)) document.documentElement.classList.replace('light','dark');
+    })();
+  </script>
+</body>
+</html>
